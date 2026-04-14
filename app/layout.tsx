@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: "Wasil Mawardi — Fullstack Developer",
   description:
     "Fullstack Developer spesialis TypeScript, NestJS, Vue/Nuxt, dan integrasi API enterprise. 4+ tahun membangun sistem digital untuk instansi pemerintah dan pendidikan tinggi.",
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: { url: "/favicon-32.png", sizes: "32x32" },
+  },
   openGraph: {
     title: "Wasil Mawardi — Fullstack Developer",
     description:
