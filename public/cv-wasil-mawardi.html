@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CV — Wasil Mawardi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: white;
+      color: #1E293B;
+      font-size: 7.8pt;
+      line-height: 1.45;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(135deg, #0369A1 0%, #0EA5E9 60%, #06B6D4 100%);
+      padding: 18px 32px 16px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      pointer-events: none;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      right: 200px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+    }
+
+    .photo-wrap {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2.5px solid rgba(255, 255, 255, 0.55);
+      overflow: hidden;
+      background: linear-gradient(160deg, #0ea5e9 0%, #0369a1 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-wrap img {
+      width: 105%;
+      height: 125%;
+      object-fit: cover;
+      object-position: 65% 35%;
+    }
+
+    .photo-initials {
+      font-size: 18pt;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: -1px;
+    }
+
+    .header-info {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-name {
+      font-size: 22pt;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      margin-bottom: 3px;
+    }
+
+    .header-title {
+      font-size: 8pt;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.82);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .header-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+    }
+
+    .header-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 7.5pt;
+    }
+
+    /* ── BODY ── */
+    .body {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 64mm;
+      background: #F0F9FF;
+      padding: 14px 15px;
+      border-right: 1px solid #BAE6FD;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-top {
+      /* skills only */
+    }
+
+    .sidebar-bottom {
+      margin-top: auto;
+    }
+
+    /* pendidikan, bahasa, stats, instansi */
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      padding: 14px 22px;
+      background: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Section labels ── */
+    .section-label {
+      font-size: 6.5pt;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: #0EA5E9;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #BAE6FD;
+    }
+
+    .section {
+      margin-bottom: 12px;
+    }
+
+    /* ── Summary ── */
+    .summary {
+      font-size: 7.8pt;
+      color: #334155;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    /* ── Experience ── */
+    .exp-item {
+      margin-bottom: 9px;
+      padding-left: 10px;
+      border-left: 2px solid #BAE6FD;
+      position: relative;
+    }
+
+    .exp-item.current {
+      border-left-color: #0EA5E9;
+    }
+
+    .exp-item.current::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0EA5E9;
+      box-shadow: 0 0 5px rgba(14, 165, 233, 0.5);
+    }
+
+    .exp-item:not(.current)::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 4px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7DD3FC;
+    }
+
+    .exp-period {
+      font-size: 6.5pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #64748B;
+      margin-bottom: 1px;
+    }
+
+    .exp-company {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0C1A2E;
+    }
+
+    .exp-company.cc {
+      color: #0369A1;
+    }
+
+    .exp-role {
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: #0EA5E9;
+      margin-bottom: 2px;
+    }
+
+    .exp-desc {
+      font-size: 7pt;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* ── Skills ── */
+    .skill-group {
+      margin-bottom: 9px;
+    }
+
+    .skill-group-title {
+      font-size: 7pt;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2px;
+    }
+
+    .skill-name {
+      font-size: 7pt;
+      color: #334155;
+    }
+
+    .skill-level {
+      font-size: 6pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #0EA5E9;
+    }
+
+    .skill-level.p {
+      color: #38BDF8;
+    }
+
+    .skill-level.f {
+      color: #94A3B8;
+    }
+
+    /* ── Tags ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 6pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #0369A1;
+      background: #E0F2FE;
+      border-radius: 3px;
+      padding: 1px 5px;
+    }
+
+    /* ── Education ── */
+    .edu-item {
+      margin-bottom: 7px;
+    }
+
+    .edu-period {
+      font-size: 6.5pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #64748B;
+    }
+
+    .edu-school {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #0C1A2E;
+    }
+
+    .edu-degree {
+      font-size: 7pt;
+      color: #475569;
+    }
+
+    /* ── Bahasa ── */
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+
+    .lang-name {
+      font-size: 7pt;
+      color: #334155;
+    }
+
+    .lang-badge {
+      font-size: 6pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #0369A1;
+      background: #E0F2FE;
+      border-radius: 3px;
+      padding: 1px 5px;
+    }
+
+    /* ── Klien & Instansi ── */
+    .client-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .client-tag {
+      font-size: 6pt;
+      color: #334155;
+      background: white;
+      border: 1px solid #BAE6FD;
+      border-radius: 3px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+
+    /* ── Stats ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      margin-top: 6px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid #BAE6FD;
+      border-radius: 5px;
+      padding: 6px 8px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 11pt;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      background: linear-gradient(135deg, #0369A1, #0EA5E9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 5.5pt;
+      color: #64748B;
+      margin-top: 1px;
+    }
+
+    /* ── Projects ── */
+    .projects-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      flex: 1;
+    }
+
+    .project-item {
+      padding: 8px 10px;
+      background: #F8FAFC;
+      border-radius: 5px;
+      border: 1px solid #E2E8F0;
+      border-left: 3px solid #0EA5E9;
+    }
+
+    .project-name {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #0C1A2E;
+      margin-bottom: 1px;
+    }
+
+    .project-meta {
+      font-size: 6pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #0EA5E9;
+      margin-bottom: 3px;
+    }
+
+    .project-desc {
+      font-size: 7pt;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* ── More callout ── */
+    .more-projects {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      background: linear-gradient(135deg, #E0F2FE, #F0F9FF);
+      border: 1px dashed #7DD3FC;
+      border-radius: 5px;
+      font-size: 7pt;
+      color: #0369A1;
+      margin-top: auto;
+      padding-top: 7px;
+    }
+
+    .more-icon {
+      font-size: 10pt;
+      flex-shrink: 0;
+    }
+
+    .more-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #0EA5E9;
+      white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: linear-gradient(135deg, #0369A1 0%, #0EA5E9 100%);
+      padding: 9px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 7pt;
+    }
+
+    @media print {
+
+      html,
+      body {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="photo-wrap">
+        <img src="photo-wasil.png" alt="Wasil Mawardi">
+      </div>
+      <div class="header-info">
+        <div class="header-name">Wasil Mawardi</div>
+        <div class="header-title">Fullstack Developer</div>
+        <div class="header-contacts">
+          <span class="header-contact-item">✉ wasilmawardi0@gmail.com</span>
+          <span class="header-contact-item">☎ +62 878 6447 1357</span>
+          <span class="header-contact-item">🔗 linkedin.com/in/wasilmawardi</span>
+          <span class="header-contact-item">📍 Jakarta, Indonesia</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+
+        <!-- TOP: Skills -->
+        <div class="sidebar-top">
+          <div class="section">
+            <div class="section-label">Keterampilan</div>
+            <div class="skill-group">
+              <div class="skill-group-title">Frontend</div>
+              <div class="skill-item"><span class="skill-name">Vue.js / Nuxt.js</span><span
+                  class="skill-level">Expert</span></div>
+              <div class="skill-item"><span class="skill-name">TypeScript</span><span class="skill-level">Expert</span>
+              </div>
+              <div class="skill-item"><span class="skill-name">React / Next.js</span><span
+                  class="skill-level p">Proficient</span></div>
+              <div class="skill-item"><span class="skill-name">Tailwind CSS</span><span
+                  class="skill-level">Expert</span></div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-title">Backend</div>
+              <div class="skill-item"><span class="skill-name">NestJS</span><span class="skill-level">Expert</span>
+              </div>
+              <div class="skill-item"><span class="skill-name">Node.js</span><span class="skill-level">Expert</span>
+              </div>
+              <div class="skill-item"><span class="skill-name">Laravel / CodeIgniter</span><span
+                  class="skill-level p">Proficient</span></div>
+              <div class="skill-item"><span class="skill-name">Django REST</span><span
+                  class="skill-level p">Proficient</span></div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-title">Database &amp; Infra</div>
+              <div class="skill-item"><span class="skill-name">PostgreSQL</span><span class="skill-level">Expert</span>
+              </div>
+              <div class="skill-item"><span class="skill-name">Redis</span><span class="skill-level p">Proficient</span>
+              </div>
+              <div class="skill-item"><span class="skill-name">Docker · CI/CD · Nginx</span><span
+                  class="skill-level p">Proficient</span></div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-title">API &amp; Integrasi</div>
+              <div class="skill-item"><span class="skill-name">Microsoft Graph API</span><span
+                  class="skill-level">Expert</span></div>
+              <div class="skill-item"><span class="skill-name">RabbitMQ</span><span
+                  class="skill-level p">Proficient</span></div>
+              <div class="skill-item"><span class="skill-name">REST · Microservices</span><span
+                  class="skill-level">Expert</span></div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-title">AI Tools</div>
+              <div class="skill-item"><span class="skill-name">Claude Code</span><span class="skill-level">Expert</span>
+              </div>
+              <div class="skill-item"><span class="skill-name">Cursor · GitHub Copilot</span><span
+                  class="skill-level p">Proficient</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM: pushed to bottom with margin-top: auto -->
+        <div class="sidebar-bottom">
+
+          <div class="section">
+            <div class="section-label">Pendidikan</div>
+            <div class="edu-item">
+              <div class="edu-period">2023 – 2027</div>
+              <div class="edu-school">Universitas Terbuka</div>
+              <div class="edu-degree">S1 Sistem Informasi</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-period">2018 – 2021</div>
+              <div class="edu-school">SMKN 13 Bandung</div>
+              <div class="edu-degree">Rekayasa Perangkat Lunak</div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-label">Bahasa</div>
+            <div class="lang-item"><span class="lang-name">Bahasa Indonesia</span><span class="lang-badge">Native</span>
+            </div>
+            <div class="lang-item"><span class="lang-name">English</span><span class="lang-badge">Professional</span>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-label">Klien &amp; Instansi</div>
+            <div class="client-grid">
+              <span class="client-tag">Universitas Terbuka</span>
+              <span class="client-tag">BAPENDA Jabar</span>
+              <span class="client-tag">BPBD Jabar</span>
+              <span class="client-tag">Kementerian PUPR</span>
+              <span class="client-tag">ITJEN Kemendikbud</span>
+              <span class="client-tag">BSSN</span>
+            </div>
+          </div>
+
+          <div class="section" style="margin-bottom:0">
+            <div class="section-label">Statistik</div>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-value">8.4K</div>
+                <div class="stat-label">Commit (SRS)</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">400K+</div>
+                <div class="stat-label">Pengguna aktif</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">30+</div>
+                <div class="stat-label">Aplikasi terkirim</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">4+</div>
+                <div class="stat-label">Tahun pengalaman</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="main">
+
+        <div class="summary">
+          Fullstack developer dengan 4+ tahun pengalaman membangun sistem digital skala nasional untuk instansi
+          pemerintah dan universitas. Terbiasa end-to-end — desain arsitektur, backend, frontend, hingga terlibat
+          langsung dengan user di lapangan. Saat ini di Direktorat Sistem Informasi Universitas Terbuka, mengelola
+          sistem yang digunakan 400.000+ mahasiswa se-Indonesia.
+        </div>
+
+        <div class="section">
+          <div class="section-label">Pengalaman Kerja</div>
+          <div class="exp-item current">
+            <div class="exp-period">Jan 2025 – Sekarang</div>
+            <div class="exp-company cc">Universitas Terbuka — Direktorat Sistem Informasi</div>
+            <div class="exp-role">Fullstack Developer</div>
+            <div class="exp-desc">Pengembangan sistem internal UT secara end-to-end. Terlibat langsung dengan user untuk
+              analisis kebutuhan dan UAT. Termasuk membangun sistem transfer data antar database dengan volume jutaan
+              record tanpa downtime.</div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-period">2021 – 2024</div>
+            <div class="exp-company">PT. Mitra Sinerji Tekno</div>
+            <div class="exp-role">Fullstack Developer · Business Analyst · Tech Leader</div>
+            <div class="exp-desc">Memimpin pengembangan 10+ aplikasi untuk klien pemerintah dan pendidikan tinggi —
+              BAPENDA Jabar, Kementerian PUPR, KEMENDIKBUD, Universitas Terbuka. Penghargaan Presensi Karyawan Terbaik
+              2022.</div>
+          </div>
+          <div class="exp-item" style="margin-bottom:0">
+            <div class="exp-period">2020 – 2021</div>
+            <div class="exp-company">CV. ICOMMITS</div>
+            <div class="exp-role">Backend Developer</div>
+            <div class="exp-desc">Pengembangan dan pengelolaan sistem backend untuk performa dan skalabilitas aplikasi.
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects — flex: 1 sehingga mengisi sisa ruang -->
+        <div class="projects-section">
+          <div class="section-label">Proyek Unggulan</div>
+          <div class="projects-list">
+
+            <div class="project-item">
+              <div class="project-name">SRS — Student Record System</div>
+              <div class="project-meta">Universitas Terbuka · 8.411 commit · 44 bulan · 400K+ mahasiswa se-Indonesia
+              </div>
+              <div class="project-desc">Sistem data akademik real-time untuk 400K+ mahasiswa di 39 UPBJJ. Fullstack
+                developer utama selama 44 bulan, arsitektur microservice penuh.</div>
+              <div class="tags"><span class="tag">Vue.js</span><span class="tag">NestJS</span><span
+                  class="tag">Redis</span><span class="tag">Microservices</span><span class="tag">PostgreSQL</span><span
+                  class="tag">Docker</span></div>
+            </div>
+
+            <div class="project-item">
+              <div class="project-name">Portal MBKM — Merdeka Belajar Kampus Merdeka</div>
+              <div class="project-meta">Universitas Terbuka · 2.797 commit · 22 bulan · Nasional</div>
+              <div class="project-desc">Platform MBKM UT — pendaftaran, administrasi, dan pelaksanaan program bagi
+                mahasiswa dan dosen seluruh Indonesia. Integrasi Microsoft Azure SSO dan cloud.</div>
+              <div class="tags"><span class="tag">Nuxt.js</span><span class="tag">NestJS</span><span
+                  class="tag">Microsoft Azure</span><span class="tag">PostgreSQL</span><span
+                  class="tag">TypeScript</span></div>
+            </div>
+
+            <div class="project-item">
+              <div class="project-name">e-Presensi Tutor UT</div>
+              <div class="project-meta">Universitas Terbuka · 6.000+ pengguna · 10K request/hari · Google Play</div>
+              <div class="project-desc">Absensi 6.000+ tutor otomatis dari data meeting Microsoft Teams via Graph API —
+                eliminasi 100% input manual. Tersedia di Google Play Store.</div>
+              <div class="tags"><span class="tag">Microsoft Graph API</span><span class="tag">NestJS</span><span
+                  class="tag">Flutter</span><span class="tag">PostgreSQL</span></div>
+            </div>
+
+            <div class="project-item">
+              <div class="project-name">SAMBARA — Samsat Mobile Jawa Barat</div>
+              <div class="project-meta">BAPENDA Jawa Barat · Produksi aktif · Google Play Store</div>
+              <div class="project-desc">Layanan administrasi kendaraan bermotor dan pembayaran pajak elektronik untuk
+                seluruh warga Jawa Barat.</div>
+              <div class="tags"><span class="tag">Django REST</span><span class="tag">CodeIgniter</span><span
+                  class="tag">Docker</span><span class="tag">PostgreSQL</span></div>
+            </div>
+
+          </div>
+
+          <!-- More callout — didorong ke bawah dengan margin-top: auto -->
+          <div class="more-projects" style="margin-top: 8px;">
+            <span class="more-icon">↗</span>
+            <span>30+ proyek lainnya (BIMON, SIPANTAU, BPBD Jabar, PUPR, BSSN, dll) — detail lengkap di</span>
+            <span class="more-url">wasilmawardi.vercel.app</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <span class="footer-item">✉ wasilmawardi0@gmail.com</span>
+      <span class="footer-item">☎ +62 878 6447 1357</span>
+      <span class="footer-item">🔗 linkedin.com/in/wasilmawardi</span>
+    </div>
+
+  </div>
+</body>
+
+</html>
